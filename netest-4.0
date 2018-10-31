@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#========================Cabeçário=============================================>>
+#Autor = carlosrfs99@gmail.com
+#========================Variáveis das cores===================================>>
+az="\033[34;1m"
+ve="\033[32;1m"
+ver="\033[31;1m"
+#========================O restante das variáveis==============================>>
+testes="ping -c 4 www.google.com"
+#==============================================================================>>
+case $1 in
+	--help)
+		cat help 
+	;;
+	    -p)
+		testes="ping -c $2 www.google.com"
+	        echo -e "$ve =====>>Você escolheu realizar o test com $2 pacotes sendo enviados<<====="
+	;;
+	     *)
+		echo "nenhum parametro reconhecido, tente com --help para mais informações"
+esac
+echo -e "$az _____                       _   _               _            _    "  #=====>>Linhas onde se faz o titulo que vai aparecer
+echo -e "$az/  __ \                     | | (_)             | |          | |   "  #
+echo -e "$az| /  \/ ___  _ __   ___  ___| |_ _  ___  _ __   | |_ ___  ___| |_  "  #
+echo -e "$az| |    / _ \| '_ \ / _ \/ __| __| |/ _ \| '_ \  | __/ _ \/ __| __| "  #
+echo -e "$az| \__/\ (_) | | | |  __/ (__| |_| | (_) | | | | | ||  __/\__ \ |_  "  #
+echo -e "$az \____/\___/|_| |_|\___|\___|\__|_|\___/|_| |_|  \__\___||___/\__| "  #
+echo -e "$az Testando sua conexão com a internet! Por favor aguade..."        
+if $testes; then  #aqui eu testo a conecção dando ping no google limitei a contagem a 4, sem qualquer intervalo
+	echo -e "$az Você esta conectado a internet! [$ve Ok$az]"   #o programa em si eu fiz em apena um bloco if
+else
+	echo -e "$ver Você não esta conectado a internet! $az[$ver ERRO$az]"
+fi

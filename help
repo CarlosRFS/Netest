@@ -1,0 +1,3 @@
+Parametros:
+    -p =====>determinar o numero de pacotes enviados durante o teste
+       exemplo: "./netest -p n" =====> n = numero de pacotes
